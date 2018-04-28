@@ -4,4 +4,9 @@
   {{parent()}}
   <h1>{{title}}</h1>
   <p>Welcome to {{title}}</p>
+  <ul>
+  	{% for comp in complejos %}
+  		<li>{{comp.nombre}}</li>
+  	{% endfor %}
+  </ul>
 {% endblock %}
