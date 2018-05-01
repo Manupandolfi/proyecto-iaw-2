@@ -1,5 +1,21 @@
 var jsonComplejos;
 
+$(document).ready(function(){
+	seleccionarEstilo();	
+	crearMapa();
+	swal({
+	  title: 'Aviso Importante',
+	  imageUrl: './images/location.png',
+	  text: 'Para mejorar la experiencia de usuario en este sitio le sugerimos que permita al navegador conocer su ubicacion, de lo contrario se utilizará una posición por defecto.',
+	  confirmButtonText: 'Cerrar',
+	  confirmButtonClass: 'btn btn-info',
+	  buttonsStyling: false
+	}).then((result) => {
+		geolocacion();
+	})
+
+});
+
 function mimodal(){
 /*modal de geolocacion*/
 	$(window).on('load',function(){

@@ -1,12 +1,85 @@
 {% extends 'layout.twig' %}
 
+{% block headimports %}
+	<!--CDN Sweet Alert-->
+	<script src="/javascripts/sweetalert2.all.js"></script>
+{% endblock %}
 {% block body %}
   {{parent()}}
-  <h1>{{title}}</h1>
-  <p>Welcome to {{title}}</p>
-  <ul>
-  	{% for comp in complejos %}
-  		<li>{{comp.nombre}}</li>
-  	{% endfor %}
-  </ul>
+    <!-- CONTENIDO GENERAL -->
+  <div class="gral-container" id="gral-container">
+        <div class="container">
+        	<h2 class="titulo-ppal"> Complejos de Futbol </h2>
+        	<div id="row-map" class="row">
+
+        		<!-- DIV DE LOS FILTROS -->
+        		<div class="col-xs-12 col-sm-4 col-md-3">
+        			<div class="panel panel-default" id="panel-filtros">
+	                	<div class="panel-heading">
+	                  		<h3 class="panel-title">Filtros</h3>
+	                	</div>
+	                	<div class="panel-body">
+	                		<!--FILTRO NOMBRE-->
+	                		<div class="filtro">
+	                			<label class="label-filtros">Nombre</label>
+	                			<button id="btn-nombre" onclick=toggleBtnNombre() class=" glyphicon glyphicon-plus btn-chico btn-add"></button>
+	                    		<input id="nombre" type="text" class="form-control get-out" placeholder="Cancha" autofocus>
+	                    	</div>
+	                    	<!--FILTRO DISTANCIA-->
+	                    	<div class="filtro">
+	                    		<label class="label-filtros">Distancia:&nbsp;</label><label id="valor-distancia"></label>
+			                    <button id="btn-distancia" onclick=toggleBtnDistancia() class=" glyphicon glyphicon-plus btn-chico btn-add"></button>
+			                    <div id="contenido-distancia" class="get-out">
+			                      <input id="range-distancia" type="range" min=1 max=8 value=8 step=0.5 oninput="distancia()">
+			                	</div>
+			                </div>
+			                <!--FILTRO TAMAÑO-->
+			                <div class="filtro">
+			                    <label class="label-filtros">Tamaño</label>
+			                    <button id="btn-tamanio" onclick=toggleBtnTamanio() class=" glyphicon glyphicon-plus btn-chico btn-add"></button>
+			                    <div id="contenido-tamanio" class="get-out">
+			                      <button id="btn-menos" class="btn btn-default btn-menos" onclick=menos()><span class="glyphicon glyphicon-menu-left"></span></button>
+			                      <input class="form-control input-tamanio" id="input-tamanio" type="text" value="Todas" readonly>
+			                      <button id="btn-mas" class="btn btn-default btn-mas" onclick=mas()><span class="glyphicon glyphicon-menu-right"></span></button>
+								</div>
+							</div>
+							<!--BOTON BUSCAR-->
+							<button type="button" onclick=buscar() class="btn btn-info" style="margin-top: 10px"><span class="glyphicon glyphicon-search"></span>&nbsp;Buscar</button>
+						</div>
+					</div>	
+				</div>
+
+				<!--DIV DEL MAPA-->
+				<div class="col-xs-12 col-sm-8 col-md-6 mapa panel-size" id="map">
+					<!--<img src="/images/map.jpg" width="550">-->
+			 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUGLNKaR6X3CNpfj-kk0YtvZZE2g_eL6o&callback=initMap"></script>
+				</div>
+
+				<!-- DIV DE LOS RESULTADOS -->
+				<div class="col-xs-12 col-md-3" id="resultados-container">
+					<div class="panel panel-default ">
+						<!-- Default panel contents -->
+						<div class="panel-heading">
+							<h3 class="panel-title">Resultados</h3>
+							<span id="cant-res" class="label label-success"></span>
+						</div>
+						<!-- List group -->
+						<ul class="list-group panel-limit" id="lista-resultados">
+							{% for comp in complejos %}
+								{#{{['res-',{{comp.id}}]|join}}, {{['select(',{{comp.id}},')']|join}}#}
+								<div id='res-x'>
+									<button class="list-group-item" type="button" onclick='select(x)'>
+										<p class="titulo-res">{{comp.nombre}}</p>
+										<p class="subtitulo-res">{{comp.direccion}}</p>
+									</button>
+								</div>
+							{% endfor %}	
+							<!-- Aqui iran los resultados cargados dinamicamente via js -->
+						</ul>
+					</div>
+
+	            </div>
+	        </div>
+	    </div>
+	</div>
 {% endblock %}

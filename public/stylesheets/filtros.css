@@ -1,0 +1,42 @@
+.filtro {
+	margin-bottom: 10px;
+}
+
+.botones-filtro {
+	align-content:  center;
+}
+
+.btn-mas {
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+.btn-menos {
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.input-tamanio {
+	border-radius: 0px;
+	display: inline-flex;
+	max-width: 70px;
+	background-color: white;
+}
+
+.btn-chico{
+	float: right;
+	background: none;
+	border: none;
+}
+
+.btn-add {
+	color:#269F40;
+}
+
+.btn-remove {
+	color:red;
+}
+
+.get-out {
+	display: none;
+}

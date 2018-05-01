@@ -341,3 +341,7 @@ input[type=range]::-ms-thumb {
   text-align: center;
   font-weight: 700;
 }
+
+.swal2-popup {
+  font-size: 1.6rem !important;
+}

@@ -178,3 +178,7 @@
  .media-heading{
    color: white;
  }
+
+.swal2-popup {
+  font-size: 1.6rem !important;
+}

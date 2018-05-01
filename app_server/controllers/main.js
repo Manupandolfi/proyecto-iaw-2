@@ -7,7 +7,7 @@ const index = function (req, res) {
 			res.render('error', {error: err});
 		}
 		else{
-			res.render('index', {title: 'Express', complejos});
+			res.render('index', {title: 'La Caprichosa', complejos});
 		}
 	});
 };

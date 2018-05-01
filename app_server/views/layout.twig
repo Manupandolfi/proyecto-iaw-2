@@ -5,12 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
+    {% block headimports %}
+    {% endblock %}
     <link rel='stylesheet' href='/stylesheets/bootstrap/bootstrap.min.css' />
-    <link id='css-estilo' rel='stylesheet' href='/stylesheets/default.css' />   
+    <link rel='stylesheet' href='/stylesheets/style.css' />   
+    <link rel='stylesheet' href='/stylesheets/filtros.css' />
+    <link rel='stylesheet' href='/stylesheets/mapa.css' />  
+    <link rel='stylesheet' href='/stylesheets/comentarios.css' />
+    <link rel='stylesheet' href='/stylesheets/resultados.css' />
+
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Raleway|Fredoka+One|Open+Sans" rel="stylesheet">
+
+    <link id='css-estilo' rel='stylesheet' href='/stylesheets/default.css' />
+
+
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script type='text/javascript' src='/javascripts/estilos.js'></script>
     <script type='text/javascript' src='/javascripts/local-storage.js'></script>
     <script type='text/javascript' src='/javascripts/funciones.js'></script>
+    <script type='text/javascript' src='/javascripts/mapa.js'></script>
+    <script type='text/javascript' src='/javascripts/comentarios.js'></script>
   </head>
   <body>
     {% block body %}
