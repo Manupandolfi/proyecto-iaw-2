@@ -22,16 +22,17 @@ function filtrar(nombre,tamanio,distancia,ubiActual){
 }
 
 function filtrarNombre(nombre,complejos){
-		if !(nombre.equals('')){}
+		if (!(nombre.equals(''))){
 					$.each(complejo,function(i,k){
 								if(!(k.nombre.contains(nombre)))
 											complejo.remove(k);
 		});
+		}
 		return complejos;
 }
 function filtrarTamanio(tamanio,complejos){
 		var tiene = 0;
-		if !(tamanio.equals('todas')){
+		if (!(tamanio.equals('todas'))){
 					$.each(complejo,function(i,k){
 								$.each(k.canchas,function(p,q){
 													if(q.tamanio.equals(tamanio))
@@ -40,6 +41,7 @@ function filtrarTamanio(tamanio,complejos){
 				if(tiene = 0)
 						complejos.remove(k);
 		});
+		}
 		return complejos;
 }
 
