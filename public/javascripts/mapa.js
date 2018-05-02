@@ -5,8 +5,6 @@ var circulo = null;
 
 function initMap() {
         crearMapa();
-        mimodal();
-
       }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -122,19 +120,31 @@ function geolocacion(){
         handleLocationError(false, infoWindow, map.center);
     }
 }
-function cargarComplejos() {
+/*DEPRECADO
+  function cargarComplejos(complejosFS) {
           var index;
-          for (index = 0; index < jsonComplejos.length; ++index) {
-              var complejo = jsonComplejos[index];
+          alert(complejosFS);
+          for (index = 0; index < complejosFS.length; ++index) {
+              var complejo = complejosFS[index];
               complejo.marcador = crearMarcador(parseFloat(complejo.coordenadas[0]),parseFloat(complejo.coordenadas[1]),complejo.id);
               complejos[index] = complejo;
 
             }
 }
+*/
 
-function crearInfoWindow(complejoID){
+function getUbicacion(){
+  return posUsuario;
+}
+function cargarComplejos(complejosFS) {
+        var index;
+        for (index = 0; index < complejosFS.length; ++index) {
+          complejosFS[index].macardor = crearMarcador(parseFloat(complejoFS[index].coordenadas[0]),parseFloat(complejoFS[index].coordenadas[1]),complejoFS[index].id);
+          }
+}
+
+function crearInfoWindow(complejo){
   var infoWindow = new google.maps.InfoWindow({map: map});
-  var complejo = getComplejo(complejoID);
   var pos = {
           lat : parseFloat(complejo.coordenadas[0]),
           lng : parseFloat(complejo.coordenadas[1])
@@ -193,6 +203,40 @@ function crearMarcador(lati,long,id){
   marker.setIcon("res/pincho.png");
  return marker;
 }
+function centrarMapa(complejo){
+       if (circulo != null)
+           circulo.setMap(null);
+       var pos = {
+         lat: parseFloat(complejo.coordenadas[0]),
+         lng: parseFloat(complejo.coordenadas[1])
+       }
+       map.setCenter(pos);
+       map.setZoom(17);
+}
+function dibujarDistancia(distancia){
+      if(circulo == null){    circulo = new google.maps.Circle({
+          strokeColor: '#A9F5F2',
+          strokeOpacity: 0.9,
+          strokeWeight: 2,
+          fillColor: '#CEF6F5',
+          fillOpacity: 0.35,
+          map: map,
+          center: posUsuario,
+          radius:distancia*1000
+        });
+      }
+      if(circulo.getMap() == null)
+          {circulo.setMap(map);}
+      circulo.setRadius(distancia*1000);
+}
+function filtrarDistancia(resultados,distancia){
+          dibujarDistancia(distancia);
+          var i = 0;
+          for(i; i < resultados.length; ++i){
+                  resultados[i].marcador.setMap(map);
+          map.setZoom(12);
+          }
+}
 /*
 function toggleBounce() {
  if (marker.getAnimation() !== null) {
@@ -202,6 +246,7 @@ function toggleBounce() {
  }
 }
 */
+/*
 function filtrarDistancia(resultados,distancia){
           dibujarDistancia(distancia);
           var filtrado = new Array();
@@ -222,23 +267,10 @@ function filtrarDistancia(resultados,distancia){
           map.setZoom(12);
           return filtrado;
 }
+*/
 
-function dibujarDistancia(distancia){
-      if(circulo == null){    circulo = new google.maps.Circle({
-          strokeColor: '#A9F5F2',
-          strokeOpacity: 0.9,
-          strokeWeight: 2,
-          fillColor: '#CEF6F5',
-          fillOpacity: 0.35,
-          map: map,
-          center: posUsuario,
-          radius:distancia*1000
-        });
-      }
-      if(circulo.getMap() == null)
-          {circulo.setMap(map);}
-      circulo.setRadius(distancia*1000);
-}
+
+/*
 function esta(complejo,resultados){
     var i = 0;
     for(i; i < resultados.length; ++i){
@@ -278,14 +310,4 @@ function getKilometros(lat1,lon1,lat2,lon2){
    return Math.round(d);
  }
 
-
- function centrarMapa(complejo){
-        if (circulo != null)
-            circulo.setMap(null);
-        var pos = {
-          lat: parseFloat(complejo.coordenadas[0]),
-          lng: parseFloat(complejo.coordenadas[1])
-        }
-        map.setCenter(pos);
-        map.setZoom(17);
- }
+*/

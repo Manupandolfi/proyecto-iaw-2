@@ -46,13 +46,13 @@
 							<!--BOTON BUSCAR-->
 							<button type="button" onclick=buscar() class="btn btn-info" style="margin-top: 10px"><span class="glyphicon glyphicon-search"></span>&nbsp;Buscar</button>
 						</div>
-					</div>	
+					</div>
 				</div>
 
 				<!--DIV DEL MAPA-->
 				<div class="col-xs-12 col-sm-8 col-md-6 mapa panel-size" id="map">
 					<!--<img src="/images/map.jpg" width="550">-->
-			 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUGLNKaR6X3CNpfj-kk0YtvZZE2g_eL6o&callback=initMap"></script>
+			 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUGLNKaR6X3CNpfj-kk0YtvZZE2g_eL6o&callback=initMap"></script>
 				</div>
 
 				<!-- DIV DE LOS RESULTADOS -->
@@ -68,12 +68,12 @@
 							{% for comp in complejos %}
 								{#{{['res-',{{comp.id}}]|join}}, {{['select(',{{comp.id}},')']|join}}#}
 								<div id='res-x'>
-									<button class="list-group-item" type="button" onclick='select(x)'>
+									<button class="list-group-item" type="button" onclick='select({{comp.id}})'>
 										<p class="titulo-res">{{comp.nombre}}</p>
 										<p class="subtitulo-res">{{comp.direccion}}</p>
 									</button>
 								</div>
-							{% endfor %}	
+							{% endfor %}
 							<!-- Aqui iran los resultados cargados dinamicamente via js -->
 						</ul>
 					</div>
