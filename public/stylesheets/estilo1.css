@@ -140,7 +140,7 @@
 }
 
 .titulo-res:hover{
-	font-size: 18px;
+	/*font-size: 18px;*/
 }
 
 .subtitulo-res{
@@ -149,8 +149,8 @@
 
 .list-group-item:hover{
 	text-transform: uppercase;
-	/*text-align: right;*/
-	font-size: 18px;
+	/*text-align: right;
+	font-size: 18px;*/
 
 }
 
