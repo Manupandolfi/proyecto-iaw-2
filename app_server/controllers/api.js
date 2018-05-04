@@ -15,7 +15,17 @@ const getComplejos = function(req, res){
 module.exports = {getComplejos};
 
 var getComentarios = function(req,res){
-	Complejo.find({_id:{req.params.id}},{_id:0,comentarios:1}).exec((err,comentarios) =)
+	Complejo.find({_id:{req}},{_id:0,comentarios:1}).exec((err,comentarios) => {
+
+		if(err){
+			res.status(404).json(err);
+		}
+		else{
+			console.log('My Man');
+			res.status(200).json(complejos);
+		}
+
+	});
 
 }
 /*
