@@ -10,47 +10,67 @@ const getComplejos = function(req, res){
 			console.log('My Man');
 			res.status(200).json(complejos);
 		}
-	})
-};
+	});
+}
+module.exports = {getComplejos};
 
+/*
 function filtrar(nombre,tamanio,distancia,ubiActual){
 		filtrados = getComplejos
-		filtrados	= filtrarNombre(nombre,filtrados);
-		filtrados = filtrarTamanio(tamanio,filtrados);
-		filtrados = filtrarDistancia(distancia,filtrados,ubiActual);
+		filtrarNombre(nombre,filtrados);
+		filtrarTamanio(tamanio,filtrados);
+		filtrarDistancia(distancia,filtrados,ubiActual);
 	return filtrados;
 }
 
 function filtrarNombre(nombre,complejos){
+	var aux = [];
 		if (!(nombre.equals(''))){
 					$.each(complejo,function(i,k){
-								if(!(k.nombre.contains(nombre)))
-											complejo.remove(k);
+								if((k.nombre.contains(nombre)))
+											aux.push(k);
 		});
+		complejos = aux.slice();
 		}
-		return complejos;
+}
+
+function getComentarios(){
+				var Comentarios = [];
+				Complejo.findOne({}).exec((err,complejo) => {
+					if(err){
+						res.status(404).json(err);
+					}
+					else{
+						console.log('Encontre complejo');
+						res.status(200).json(complejo.comentarios);
+					}
+				});
+
 }
 function filtrarTamanio(tamanio,complejos){
-		var tiene = 0;
+	var aux = [];
+		var tiene;
 		if (!(tamanio.equals('todas'))){
 					$.each(complejo,function(i,k){
+						tiene = 0;
 								$.each(k.canchas,function(p,q){
 													if(q.tamanio.equals(tamanio))
 																tiene = 1;
 								});
-				if(tiene = 0)
-						complejos.remove(k);
-		});
+						if(tiene == 1)
+								aux.push(k);
+					});
+		complejos = aux.slice();
 		}
-		return complejos;
 }
 
 function filtrarDistancia(distancia,complejos,ubiActual){
+	var aux = [];
 	   $.each(complejos,function(i,k){
-	       if(!(enRango(k,distancia,ubiActual)))
-								complejos.remove(k);
+	       if(enRango(k,distancia,ubiActual))
+								aux.push(k);
 	   });
-		return complejos
+	complejos = aux.slice();
 }
 
 function enRango(resultado,distancia,ubiActual){
@@ -79,5 +99,4 @@ function getKilometros(lat1,lon1,lat2,lon2){
    return Math.round(d);
  }
 
-
-module.exports = {getComplejos};
+*/
