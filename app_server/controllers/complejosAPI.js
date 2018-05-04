@@ -14,6 +14,10 @@ const getComplejos = function(req, res){
 }
 module.exports = {getComplejos};
 
+var getComentarios = function(req,res){
+	Complejo.find({_id:{req.params.id}},{_id:0,comentarios:1}).exec((err,comentarios) =)
+
+}
 /*
 function filtrar(nombre,tamanio,distancia,ubiActual){
 		filtrados = getComplejos

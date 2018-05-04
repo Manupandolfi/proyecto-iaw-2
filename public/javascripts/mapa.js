@@ -184,11 +184,9 @@ function crearMarcador(complejo){
    position: {lat: parseFloat(complejo.coordenadas[0]), lng: parseFloat(complejo.coordenadas[1])}
  });
  marker.addListener('click',function(){
-
+       toggleBounce();
        crearInfoWindow(complejo);
  });
-
-  marker.addListener('click', toggleBounce);
   marker.setIcon("./images/pincho.png");
  return marker;
 }

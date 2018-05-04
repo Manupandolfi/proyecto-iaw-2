@@ -7,6 +7,7 @@ function comentar(complejoId){
 		lista = getObject('comments-'+complejo.id);
 	//Chequeamos que el comentario no sea vacio
 	if(com==""){
+			/*SACAR ESTE ALERT ESPARTANO*/
 		alert("El contenido del comentario no puede ser vacío.");
 	}
 	else{
@@ -32,15 +33,17 @@ function mostrarComentarios(complejo){
 	//Funcion para mostrar los comentarios del complejo seleccionado
 	//Si no estan, los traemos...
 	$("#row-comments").fadeIn();
-	$("#titulo-comment").text("Comentarios del complejo "+complejo.nombre);	
+	$("#titulo-comment").text("Comentarios del complejo "+complejo.nombre);
 	//Elimino todos los comentarios que hay mostrados ahora
 	$("#comentarios").empty();
 
 	//Cargo todos los comentarios del complejo
-	var lista = getObject('comments-'+complejo.id);
+	$.get('/api/comentarios/:'+complejo.id, function(data){
+		lista = data;
+	});
 	$.each(lista, function(i,k){
 		//Creo la estructura de un comentario nuevo
-		var icon = $('<div></div>'),	
+		var icon = $('<div></div>'),
 			div = $('<div></div>'),
 			h4 = $('<h4></h4>'),
 			p = $('<p></p>');
@@ -61,7 +64,7 @@ function mostrarComentarios(complejo){
 
 		//Agrego el comentario al dom
 		div.append(icon,h4,p);
-		$("#comentarios").append(div);	
+		$("#comentarios").append(div);
 	});
 }
 
@@ -69,6 +72,3 @@ function ocultarComentarios(){
 	//Funcion para ocultar los comentarios de cualquier complejo que se esten mostrando
 	$("#row-comments").fadeOut();
 }
-
-
-
