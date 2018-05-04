@@ -1,10 +1,10 @@
+var lista = [];
 function comentar(complejoId){
 	//Funcion para realizar un comentario al complejo indicado
 	//Obtengo los campos de los comentarios y la lista de comentarios del complejo
 	var complejo = getComplejo(complejoId);
-	var name = $("#nombre-comment").val(),
-		com = $("#input-comment").val(),
-		lista = getObject('comments-'+complejo.id);
+	var name = $("#nombre-comment").val();
+		com = $("#input-comment").val();
 	//Chequeamos que el comentario no sea vacio
 	if(com==""){
 			/*SACAR ESTE ALERT ESPARTANO*/
@@ -15,15 +15,8 @@ function comentar(complejoId){
 		if(name==""){
 			name = "Anónimo";
 		}
-		if(lista){
-			//Si ya existia una lista de comentarios de este complejo, lo agrego a la lista y lo vuelvo a guardar
-			lista.push({nombre: name, contenido: com});
-			setObject('comments-'+complejo.id, lista);
-		}else{
-			//Si no existia, crea una nueva lista con solo este comentario
-			setObject('comments-'+complejo.id, [{nombre: name, contenido: com}]);
-		}
 
+		/*ACA HABRIA QUE MANDAR LOS DATOS O SE HARIA CON EL FORM, NO ESTOY SEGURO*/
 		//Muestro los comentarios del complejo actualizados
 		mostrarComentarios(complejo);
 	}

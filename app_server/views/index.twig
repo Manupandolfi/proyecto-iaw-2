@@ -77,9 +77,25 @@
 							<!-- Aqui iran los resultados cargados dinamicamente via js -->
 						</ul>
 					</div>
-
 	            </div>
 	        </div>
 	    </div>
 	</div>
+	<!-- Aqui iran los comentarios cargados dinamicamente via js -->
+	<div id="row-comments" class="get-out row container">
+            <h2 id="titulo-comment"></h2>
+
+            <div id="comentarios"></div>
+
+            <div id="add-comments">
+              <h3 class="deja-comments">Deja tu comentario</h3>
+              <label class="label-comments">Nombre</label>
+              <input id="nombre-comment" type="text" class="form-control" placeholder="Dejar en blanco para mensaje Anónimo...">
+              <label class="label-comments">Comentario</label>
+              <textarea class="form-control input-comment" rows="5" id="input-comment" placeholder="Ingrese aquí su comentario..."></textarea>
+              <button id="btn-comment" class="btn btn-info btn-comment"> Comentar</button>
+            </div>
+          </div>
+          </div>
+        </div>
 {% endblock %}

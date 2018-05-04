@@ -12,22 +12,24 @@ const getComplejos = function(req, res){
 		}
 	});
 }
-module.exports = {getComplejos};
 
-var getComentarios = function(req,res){
-	Complejo.find({_id:{req}},{_id:0,comentarios:1}).exec((err,comentarios) => {
+const getComentarios = function(req,res){
+	var id = req.params.id;
+	Complejo.find({_id:{id}},{_id:0,comentarios:1}).exec((err,comentarios) => {
 
 		if(err){
 			res.status(404).json(err);
 		}
 		else{
 			console.log('My Man');
-			res.status(200).json(complejos);
+			res.status(200).json(comentarios);
 		}
 
 	});
 
 }
+module.exports = {getComplejos,getComentarios};
+
 /*
 function filtrar(nombre,tamanio,distancia,ubiActual){
 		filtrados = getComplejos
