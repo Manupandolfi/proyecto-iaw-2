@@ -1,7 +1,19 @@
 const mongoose = require('mongoose');
+var passportLocalMongoose = require('passport-local-mongoose');
 
 const dbURI = 'mongodb://localhost/complejos';
-mongoose.connect(dbURI);
+mongoose.connect(dbURI)
+	.then(() =>  console.log('connection succesful'))
+	.catch((err) => console.error(err));;
+
+
+const UserSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+    name: String
+});
+
+UserSchema.plugin(passportLocalMongoose);
 
 const canchaSchema = new mongoose.Schema({
 	id:{
@@ -61,4 +73,5 @@ const complejoSchema = new mongoose.Schema({
 	comentarios: [comentarioSchema]
 });
 
-mongoose.model('Complejo', complejoSchema)
+module.exports = mongoose.model('User', UserSchema);
+mongoose.model('Complejo', complejoSchema);
