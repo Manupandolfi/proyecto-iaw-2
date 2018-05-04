@@ -1,7 +1,7 @@
 var jsonComplejos;
 
 $(document).ready(function(){
-	seleccionarEstilo();	
+	seleccionarEstilo();
 	crearMapa();
 	swal({
 	  title: 'Aviso Importante',
@@ -31,20 +31,21 @@ function distancia(){
 	$("#valor-distancia").text($("#range-distancia").val()+" km");
 }
 
-function start(){
+$(document).ready(function (){
 	//Metodos javascript que se ejecutaran al cargarse el body del html
 	//var jsonComplejos = JSON.parse($.getJSON({'url': "json/datos.json", 'async': false}).responseText);
 	cargarDatos();
 	seleccionarEstilo();
 
-}
+});
 
 function cargarDatos(){
-	$.get('./json/datos.json', function(data) {
+	$.get('/api/complejos', function(data) {
 		jsonComplejos = data;
 		cargarCanchas(jsonComplejos);
-		cargarComplejos();
+		cargarComplejos(jsonComplejos);
 	});
+
 }
 
 function menos(){
