@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Complejo = mongoose.model('Complejo');
-var filtrados;
-const getComplejos = function(req, res){
-	Complejo.find().exec((err, complejos) => {
+var complejos = {};
+var ide;
+complejos.getComplejos = function(req, res){
+	Complejo.find({},{comentarios:0}).exec((err, complejos) => {
 		if(err){
 			res.status(404).json(err);
 		}
@@ -13,22 +14,56 @@ const getComplejos = function(req, res){
 	});
 }
 
-const getComentarios = function(req,res){
-	var id = req.params.id;
-	Complejo.find({_id:{id}},{_id:0,comentarios:1}).exec((err,comentarios) => {
-
+complejos.getComentarios = function(req,res){
+ 	ide = req.params.id;
+	var str = "'"+ide+"'";
+	Complejo.find({id:{$eq:ide}},{_id:0,comentarios:1}).exec((err,coment) => {
 		if(err){
+			console.log(str);
 			res.status(404).json(err);
 		}
 		else{
-			console.log('My Man');
-			res.status(200).json(comentarios);
+			console.log(coment);
+			res.status(200).json(coment);
 		}
 
 	});
 
 }
-module.exports = {getComplejos,getComentarios};
+
+complejos.comentarlo = function(req,res) {
+			var nom = '"'+req.body.nombreComent+'"';
+			if (nom == ('"'+'"')) nom = '"'+"anonimo"+'"';
+			var cont = '"'+req.body.contenidoComent+'"';
+			var str = "'"+ide+"'";
+			console.log(nom+cont+str);
+		/*aca deberia cargar el comentario en la base de datos*/
+		var coment = '"'+"comentarios"+'"';
+		var nombr = '"'+"nombre"+'"';
+		var content = '"'+"contenido"+'"';
+
+	/* intento 9000	
+	var nuevoComentario = {nombre : nom, contenido : content};
+		Complejo.findById(6,function(err,complejo){
+
+					if(err)
+							res.send(err);
+					complejo.push(nuevoComentario);
+					complejo.save(function(err){
+							if(err) res.send(err);
+					});
+
+		});
+		/*	intento 9001
+			Complejo.update({ id:{$eq:str}} , {$push:{coment:{nombr:nom,content:cont}}}).exec((err,com)=>{
+						if(err)
+								res.status(404);
+						else
+								res.status(200);
+		});*/
+
+	}
+module.exports = complejos;
 
 /*
 function filtrar(nombre,tamanio,distancia,ubiActual){
