@@ -200,6 +200,7 @@ function select(complejoId){
 	$("#btn-comment").attr('onclick', 'comentar('+complejoId+')');
 }
 
+
 function getComplejo(complejoId){
 	//A partir del id de un complejo, retorna ese complejo
 	var target = null;
