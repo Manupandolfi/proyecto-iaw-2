@@ -14,8 +14,10 @@ const getComplejos = function(req, res){
 }
 
 const getComentarios = function(req,res){
-	var id = req.params.id;
-	Complejo.find({_id:{id}},{_id:0,comentarios:1}).exec((err,comentarios) => {
+	var id = mongoose.Types.ObjectId(req.params.id);
+	console.log(id);
+	Complejo.find({_id:{$eq: id}}).select('comentarios -_id').exec((err, comentarios) =>{
+	//Complejo.find({_id:{$eq: id}},{_id:0,comentarios:1}).exec((err,comentarios) => {
 
 		if(err){
 			res.status(404).json(err);
