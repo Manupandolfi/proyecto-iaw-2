@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-var db = require("../models/db");
+require("../models/User");
+require("../models/complejo");
 const Complejos = mongoose.model('Complejo');
 const User = mongoose.model('User');
 

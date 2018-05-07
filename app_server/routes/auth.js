@@ -1,23 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var ctrlAuth = require('../controllers/auth');
+var passport = require('passport');
 
-const ctrlLogin = require('../controllers/auth');
+router.get('/login', ctrlAuth.login);
 
+router.get('/logout', ctrlAuth.logout);
 
-// route to register page
-router.get('/register', ctrlLogin.register);
+router.get('/google', ctrlAuth.google);
 
-// route for register action
-router.post('/register', ctrlLogin.doRegister);
-
-// route to login page
-router.get('/login', ctrlLogin.login);
-
-// route for login action
-router.post('/login', ctrlLogin.doLogin);
-
-// route for logout action
-router.get('/logout', ctrlLogin.logout);
-
+//router.get('/google/callback', ctrlAuth.googleCallback);
+router.get('/google/callback', passport.authenticate('google'), (req, res) =>{
+	res.redirect('/');
+});
 
 module.exports = router;
