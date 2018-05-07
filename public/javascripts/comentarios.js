@@ -7,8 +7,7 @@ function comentar(){
 	//Chequeamos que el comentario no sea vacio
 	if(com==""){
 		swal({
-					text :'El contenido del comentario no puede ser vacío.',
-					type : 'error',
+					title :'El contenido del comentario no puede ser vacío.',
 					imageUrl : './images/chino.png'
 				});
 	}
