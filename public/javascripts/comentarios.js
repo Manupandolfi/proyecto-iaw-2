@@ -31,7 +31,6 @@ function guardarComentario(comentario) {
 	    type: 'post',
     	dataType: "json",
 	    success: function(data){
-						alert("espartano en succes");
 						agregarComentario(comentario);
 	    },
 			data: comentario,
@@ -49,6 +48,7 @@ function mostrarComentarios(complejo){
 	var aux;
 	$.get('/api/comentarios/'+complejo.id, function(data){
 					lista = data;
+					if(data != undefined){
 					aux = lista[0].comentarios;
 					$.each(aux, function(i,k){
 						//Creo la estructura de un comentario nuevo
@@ -76,7 +76,7 @@ function mostrarComentarios(complejo){
 						$("#comentarios").append(div);
 					});
 
-	});
+	}});
 
 
 }
