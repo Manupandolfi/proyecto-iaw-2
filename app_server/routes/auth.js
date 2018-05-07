@@ -7,7 +7,12 @@ router.get('/login', ctrlAuth.login);
 
 router.get('/logout', ctrlAuth.logout);
 
-router.get('/google', ctrlAuth.google);
+//router.get('/google', ctrlAuth.google);
+router.get('/google', passport.authenticate('google', {
+    scope: ['profile'],
+    prompt: 'select_account'
+}));
+
 
 //router.get('/google/callback', ctrlAuth.googleCallback);
 router.get('/google/callback', passport.authenticate('google'), (req, res) =>{

@@ -15,27 +15,36 @@ passport.deserializeUser((id, done) => {
 passport.use(
     new GoogleStrategy({
         // options for google strategy
-        clientID: "369888330125-vclhpjmkjtojiu299lr9q6pst13omtef.apps.googleusercontent.com",
-        clientSecret: "9dt5XZzAcxWeDz8kN7XB4eFj",
-        callbackURL: '/auth/google/callback'
-    }, (accessToken, refreshToken, profile, done) => {
+        clientID: "369888330125-kq83g2hn86hop900ebtrihvt44h7p7tv.apps.googleusercontent.com",
+        clientSecret: "Sa6yfi42_JGh29FvUZ8yDLtb",
+        callbackURL: 'http://localhost:3000/auth/google/callback'
+    }, function(accessToken, refreshToken, profile, done) {
+        process.nextTick(function(){
         // check if user already exists in our own db
-        User.findOne({googleId: profile.id}).then((currentUser) => {
-            if(currentUser){
-                // already have this user
-                console.log('user is: ', currentUser);
-                done(null, currentUser);
-            } else {
-                // if not, create user in our db
-                new User({
-                    googleId: profile.id,
-                    username: profile.displayName,
-                    thumbnail: profile._json.image.url
-                }).save().then((newUser) => {
-                    console.log('created new user: ', newUser);
-                    done(null, newUser);
-                });
-            }
+            User.findOne({googleId: profile.id},
+
+                function(err, currentUser) {
+                    if(currentUser){
+                        // already have this user
+                        console.log('user is: ', currentUser);
+                        done(null, currentUser);
+                    } else {
+                        // if not, create user in our db
+                        console.log(profile.displayName);
+                        var newUser = new User();
+                            newUser.googleId = profile.id;
+                            newUser.username = profile.displayName;
+                            newUser.thumbnail = profile._json.image.url;
+                        newUser.save(function(err) {
+                            if(err)
+                                throw err;
+                            else{
+                                console.log('created new user: ', newUser);
+                                done(null, newUser);
+                            }
+                        });
+                    }
+            });
         });
-    })
-);
+}
+));

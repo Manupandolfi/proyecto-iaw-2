@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 var logger = require('morgan');
 var passport = require('passport');
 //var LocalStrategy = require('passport-local').Strategy;
-//var db = require('./app_server/models/db');
+var db = require('./app_server/models/db');
 var passportSetup = require('./app_server/auth/google');
 
 

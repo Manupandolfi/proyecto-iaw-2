@@ -5,42 +5,42 @@
 	<script src="/javascripts/sweetalert2.all.js"></script>
 {% endblock %}
 {% block body %}
-  {{parent()}}
-    <!-- CONTENIDO GENERAL -->
-  <div class="gral-container" id="gral-container">
-        <div class="container">
-        	<h2 class="titulo-ppal"> Complejos de Futbol </h2>
-        	<div id="row-map" class="row">
+	{{parent()}}
+	<!-- CONTENIDO GENERAL -->
+	<div class="gral-container" id="gral-container">
+		<div class="container">
+			<h2 class="titulo-ppal"> Complejos de Futbol </h2>
+			<div id="row-map" class="row">
 
-        		<!-- DIV DE LOS FILTROS -->
-        		<div class="col-xs-12 col-sm-4 col-md-3">
-        			<div class="panel panel-default" id="panel-filtros">
-	                	<div class="panel-heading">
-	                  		<h3 class="panel-title">Filtros</h3>
-	                	</div>
-	                	<div class="panel-body">
-	                		<!--FILTRO NOMBRE-->
-	                		<div class="filtro">
-	                			<label class="label-filtros">Nombre</label>
-	                			<button id="btn-nombre" onclick=toggleBtnNombre() class=" glyphicon glyphicon-plus btn-chico btn-add"></button>
-	                    		<input id="nombre" type="text" class="form-control get-out" placeholder="Cancha" autofocus>
-	                    	</div>
-	                    	<!--FILTRO DISTANCIA-->
-	                    	<div class="filtro">
-	                    		<label class="label-filtros">Distancia:&nbsp;</label><label id="valor-distancia"></label>
-			                    <button id="btn-distancia" onclick=toggleBtnDistancia() class=" glyphicon glyphicon-plus btn-chico btn-add"></button>
-			                    <div id="contenido-distancia" class="get-out">
-			                      <input id="range-distancia" type="range" min=1 max=8 value=8 step=0.5 oninput="distancia()">
-			                	</div>
-			                </div>
-			                <!--FILTRO TAMAÑO-->
-			                <div class="filtro">
-			                    <label class="label-filtros">Tamaño</label>
-			                    <button id="btn-tamanio" onclick=toggleBtnTamanio() class=" glyphicon glyphicon-plus btn-chico btn-add"></button>
-			                    <div id="contenido-tamanio" class="get-out">
-			                      <button id="btn-menos" class="btn btn-default btn-menos" onclick=menos()><span class="glyphicon glyphicon-menu-left"></span></button>
-			                      <input class="form-control input-tamanio" id="input-tamanio" type="text" value="Todas" readonly>
-			                      <button id="btn-mas" class="btn btn-default btn-mas" onclick=mas()><span class="glyphicon glyphicon-menu-right"></span></button>
+				<!-- DIV DE LOS FILTROS -->
+				<div class="col-xs-12 col-sm-4 col-md-3">
+					<div class="panel panel-default" id="panel-filtros">
+						<div class="panel-heading">
+							<h3 class="panel-title">Filtros</h3>
+						</div>
+						<div class="panel-body">
+							<!--FILTRO NOMBRE-->
+							<div class="filtro">
+								<label class="label-filtros">Nombre</label>
+								<button id="btn-nombre" onclick=toggleBtnNombre() class=" glyphicon glyphicon-plus btn-chico btn-add"></button>
+								<input id="nombre" type="text" class="form-control get-out" placeholder="Cancha" autofocus>
+							</div>
+							<!--FILTRO DISTANCIA-->
+							<div class="filtro">
+								<label class="label-filtros">Distancia:&nbsp;</label><label id="valor-distancia"></label>
+								<button id="btn-distancia" onclick=toggleBtnDistancia() class=" glyphicon glyphicon-plus btn-chico btn-add"></button>
+								<div id="contenido-distancia" class="get-out">
+									<input id="range-distancia" type="range" min=1 max=8 value=8 step=0.5 oninput="distancia()">
+								</div>
+							</div>
+							<!--FILTRO TAMAÑO-->
+							<div class="filtro">
+								<label class="label-filtros">Tamaño</label>
+								<button id="btn-tamanio" onclick=toggleBtnTamanio() class=" glyphicon glyphicon-plus btn-chico btn-add"></button>
+								<div id="contenido-tamanio" class="get-out">
+									<button id="btn-menos" class="btn btn-default btn-menos" onclick=menos()><span class="glyphicon glyphicon-menu-left"></span></button>
+									<input class="form-control input-tamanio" id="input-tamanio" type="text" value="Todas" readonly>
+									<button id="btn-mas" class="btn btn-default btn-mas" onclick=mas()><span class="glyphicon glyphicon-menu-right"></span></button>
 								</div>
 							</div>
 							<!--BOTON BUSCAR-->
@@ -52,7 +52,7 @@
 				<!--DIV DEL MAPA-->
 				<div class="col-xs-12 col-sm-8 col-md-6 mapa panel-size" id="map">
 					<!--<img src="/images/map.jpg" width="550">-->
-			 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUGLNKaR6X3CNpfj-kk0YtvZZE2g_eL6o&callback=initMap"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUGLNKaR6X3CNpfj-kk0YtvZZE2g_eL6o&callback=initMap"></script>
 				</div>
 
 				<!-- DIV DE LOS RESULTADOS -->
@@ -77,25 +77,25 @@
 							<!-- Aqui iran los resultados cargados dinamicamente via js -->
 						</ul>
 					</div>
-	            </div>
-	        </div>
-	    </div>
+				</div>
+			</div>
+			<!-- Aqui iran los comentarios cargados dinamicamente via js -->
+			<div id="row-comments" class="get-out row container">
+				<h2 id="titulo-comment"></h2>
+
+				<div id="comentarios"></div>
+
+				<div id="add-comments">
+					<h3 class="deja-comments">Deja tu comentario</h3>
+					<label class="label-comments">Nombre</label>
+					<input id="nombre-comment" name="nombreComent" type="text" class="form-control" placeholder="Dejar en blanco para mensaje Anónimo...">
+					<label class="label-comments">Comentario</label>
+					<input id="input-comment" name="contenidoComent" type="text" textarea class="form-control input-comment" rows="5"  placeholder="Ingrese aquí su comentario..."></textarea>
+					<button id="btn-comment" type="button" class="btn btn-info onclick="comentar()" btn-comment"> Comentar</button>
+				</div>
+			</div>
+		</div>
 	</div>
-	<!-- Aqui iran los comentarios cargados dinamicamente via js -->
-	<div id="row-comments" class="get-out row container">
-            <h2 id="titulo-comment"></h2>
-
-            <div id="comentarios"></div>
-
-            <div id="add-comments">
-	              <h3 class="deja-comments">Deja tu comentario</h3>
-	              <label class="label-comments">Nombre</label>
-	              <input id="nombre-comment" name="nombreComent" type="text" class="form-control" placeholder="Dejar en blanco para mensaje Anónimo...">
-	              <label class="label-comments">Comentario</label>
-	              <input id="input-comment" name="contenidoComent" type="text" textarea class="form-control input-comment" rows="5"  placeholder="Ingrese aquí su comentario..."></textarea>
-	              <button id="btn-comment" type="button" class="btn btn-info onclick="comentar()" btn-comment"> Comentar</button>
-						</div>
-          </div>
-          </div>
-        </div>
+</div>
+</div>
 {% endblock %}
