@@ -3,6 +3,7 @@ var express = require('express');
 var session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 var logger = require('morgan');
 var passport = require('passport');
 //var LocalStrategy = require('passport-local').Strategy;
@@ -30,6 +31,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
