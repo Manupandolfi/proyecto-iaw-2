@@ -14,6 +14,7 @@ complejos.getComplejos = function(req, res){
 	});
 }
 
+
 complejos.getComentarios = function(req,res){
  	ide = req.params.id;
 	var str = "'"+ide+"'";
