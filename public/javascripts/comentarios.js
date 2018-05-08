@@ -9,7 +9,7 @@ function comentar(){
 	//Chequeamos que el comentario no sea vacio
 	if(com==""){
 		swal({
-					title: '¡Falta Juez!'
+					title: '¡Falta Juez!',
 					text :'El contenido del comentario no puede ser vacío.',
 					imageUrl : './images/chino.png'
 				});
