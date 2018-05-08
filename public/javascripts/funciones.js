@@ -133,7 +133,7 @@ function cargarCanchas(complejosACargar){
 		//Creo el boton que estara en el div y representa al complejo
 		var button = $('<button></button>');
 		button.attr({
-			onclick: "select("+complejosACargar[i]._id+")", //Al clickear en un res se selecciona el complejo segun su id
+			onclick: "select('"+complejosACargar[i]._id+"')", //Al clickear en un res se selecciona el complejo segun su id
 			type: 'button',
 			class: 'list-group-item'
 		});
@@ -205,7 +205,7 @@ function getComplejo(complejoId){
 	//A partir del id de un complejo, retorna ese complejo
 	var target = null;
 	for(i=0; i<jsonComplejos.length && target==null; i++)
-		if(jsonComplejos[i].id == complejoId)
+		if(jsonComplejos[i]._id == complejoId)
 			target = jsonComplejos[i];
 	return target;
 }
