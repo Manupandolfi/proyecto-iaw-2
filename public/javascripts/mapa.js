@@ -141,7 +141,7 @@ function getUbicacion(){
 function crearInfoWindow(complejo){
   var infoWindow = new google.maps.InfoWindow({map: map});
   var pos = {
-          lat : parseFloat(complejo.coordenadas[0]),
+          lat : 0.0004 + parseFloat(complejo.coordenadas[0]),
           lng : parseFloat(complejo.coordenadas[1])
     };
     stringCanchas = recuperarStringCanchas(complejo);
@@ -183,11 +183,10 @@ function crearMarcador(complejo){
    marker = new google.maps.Marker({
    map: map,
    draggable: false,
-   animation: google.maps.Animation.DROP,
+   animation: google.maps.Animation.BOUNCE,
    position: {lat: parseFloat(complejo.coordenadas[0]), lng: parseFloat(complejo.coordenadas[1])}
  });
  marker.addListener('click',function(){
-       toggleBounce();
        crearInfoWindow(complejo);
  });
   marker.setIcon("./images/pincho.png");
@@ -220,13 +219,6 @@ function dibujarDistancia(distancia){
       circulo.setRadius(distancia*1000);
 }
 
-function toggleBounce() {
- if (marker.getAnimation() !== null) {
-   marker.setAnimation(null);
- } else {
-   marker.setAnimation(google.maps.Animation.BOUNCE);
- }
-}
 function filtrarDistancia(resultados,distancia){
           dibujarDistancia(distancia);
           var filtrado = new Array();
