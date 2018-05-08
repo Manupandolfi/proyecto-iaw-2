@@ -10,7 +10,7 @@ $(document).ready(function(){
 	  confirmButtonText: 'Cerrar',
 	  confirmButtonClass: 'btn btn-info',
 	  buttonsStyling: false
-	};
+	});
 	geolocacion();
 	cargarDatos();
 
