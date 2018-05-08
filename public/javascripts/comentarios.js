@@ -2,7 +2,8 @@ var lista = [];
 function comentar(){
 	//Funcion para realizar un comentario al complejo indicado
 	//Obtengo los campos de los comentarios y la lista de comentarios del complejo
-	var name = $("#nombre-comment").val();
+	var name = $("#label-comments").text();
+	name = name.substring(14);
 	var	com = $("#input-comment").val();
 	//Chequeamos que el comentario no sea vacio
 	if(com==""){

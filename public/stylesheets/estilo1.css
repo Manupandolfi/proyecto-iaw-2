@@ -17,6 +17,15 @@
     transition:  background 0.4s;
 }
 
+.texto-header{
+	background-color: #218c74;
+    margin-top: 15px;
+    color: white;
+    font-family: 'Fredoka One', 'Open Sans', 'Arial', sans-serif;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover{
 	color:#218c74;
 	background-color: white;

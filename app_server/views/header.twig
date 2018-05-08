@@ -33,7 +33,7 @@
             <li><a href="/auth/login">Login</a></li>
           {% endif %}
           {% if user %}
-           <li>Bienvenido {{user.username}}</li>
+           <li class="texto-header">Bienvenido {{user.username}}</li>
            <li><img src={{user.thumbnail}}></li>
            <li><a href="/auth/logout">Logout</a></li>
           {% endif %}

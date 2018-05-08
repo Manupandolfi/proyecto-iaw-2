@@ -86,12 +86,15 @@
 				<div id="comentarios"></div>
 
 				<div id="add-comments">
-					<h3 class="deja-comments">Deja tu comentario</h3>
-					<label class="label-comments">Nombre</label>
-					<input id="nombre-comment" name="nombreComent" type="text" class="form-control" placeholder="Dejar en blanco para mensaje Anónimo...">
-					<label class="label-comments">Comentario</label>
-					<input id="input-comment" name="contenidoComent" type="text" textarea class="form-control input-comment" rows="5"  placeholder="Ingrese aquí su comentario..."></textarea>
-					<button id="btn-comment" type="button" class="btn btn-info onclick="comentar()" btn-comment"> Comentar</button>
+					{% if not user %}
+						<label class="label-comments">Debe iniciar sesión para comentar...</label>
+					{% endif %}
+					{% if user %}
+						<h3 class="deja-comments">Deja tu comentario</h3>
+						<label id="label-comments" class="label-comments">Comentar como {{user.username}}</label>
+						<input id="input-comment" name="contenidoComent" type="text" textarea class="form-control input-comment" rows="5"  placeholder="Ingrese aquí su comentario..."></textarea>
+						<button id="btn-comment" type="button" class="btn btn-info onclick="comentar()" btn-comment"> Comentar</button>
+					{% endif %}
 				</div>
 			</div>
 		</div>
