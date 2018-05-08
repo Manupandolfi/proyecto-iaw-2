@@ -83,14 +83,14 @@
 				<h2 id="titulo-comment"></h2>
 
 				<div id="comentarios"></div>
-
+				
 				<div id="add-comments">
+					<h3 id="cargando-comentarios" class="deja-comments get-out">Cargando comentarios...</h3>
 					{% if not user %}
 						<label class="label-comments">Debe iniciar sesión para comentar...</label>
 					{% endif %}
 					{% if user %}
 						<h3 id="subiendo-comentario" class="deja-comments get-out">Aguarde un momento, su comentario está siendo publicado...</h3>
-						<h3 id="cargando-comentarios" class="deja-comments get-out">Cargando comentarios...</h3>
 						<h3 class="deja-comments">Deja tu comentario</h3>
 						<label id="label-comments" class="label-comments">Comentar como {{user.username}}</label>
 						<input id="input-comment" name="contenidoComent" type="text" textarea class="form-control input-comment" rows="5"  placeholder="Ingrese aquí su comentario..."></textarea>
