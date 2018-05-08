@@ -47,8 +47,15 @@ complejos.comentarlo = function(req,res) {
 }
 
 complejos.getEstilo = function(req, res) {
-	var style = {'estilo' : req.user.style};
-	res.status(200).json(style);
+	if(req.user){
+		var style = {'estilo' : req.user.style};
+		res.status(200).json(style);
+	}
+	else{
+		var err = {'error' : 'no logeado'};
+		res.status(404).json(err);
+	}
+	
 }
 
 complejos.setEstilo = function(req,res) {
