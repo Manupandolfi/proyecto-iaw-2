@@ -21,7 +21,7 @@ passport.use(
     }, function(accessToken, refreshToken, profile, done) {
         process.nextTick(function(){
         // check if user already exists in our own db
-            User.findOne({googleId: profile.id},
+            User.findOne({googleid: profile.id},
 
                 function(err, currentUser) {
                     if(currentUser){
@@ -32,9 +32,10 @@ passport.use(
                         // if not, create user in our db
                         console.log(profile.displayName);
                         var newUser = new User();
-                            newUser.googleId = profile.id;
+                            newUser.googleid = profile.id;
                             newUser.username = profile.displayName;
                             newUser.thumbnail = profile._json.image.url;
+                            newUser.style = 1;
                         newUser.save(function(err) {
                             if(err)
                                 throw err;

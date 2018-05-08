@@ -45,4 +45,23 @@ complejos.comentarlo = function(req,res) {
 });
 
 }
+
+complejos.getEstilo = function(req, res) {
+	var style = {'estilo' : req.user.style};
+	res.status(200).json(style);
+}
+
+complejos.setEstilo = function(req,res) {
+	var user = req.user.username;
+	var nro = req.body.nro;
+	User.update({username:user}, {$set: {style : nro}}).exec((err,resultado)=>{
+		if(err){
+			res.status(404).json(err);
+		}
+		else{
+			res.status(200).json(resultado);
+		}
+	});
+}
+
 module.exports = complejos;

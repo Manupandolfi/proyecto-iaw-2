@@ -8,5 +8,6 @@ var middleware = require('../auth/middleware');
 router.get('/complejos', complejosApi.getComplejos);
 router.get('/comentarios/:id',complejosApi.getComentarios);
 router.post('/comentarlo', middleware,complejosApi.comentarlo);
-
+router.get('/get-estilo/',middleware,complejosApi.setEstilo);
+router.get('/set-estilo/:nro',middleware,complejosApi.getEstilo);
 module.exports = router;
