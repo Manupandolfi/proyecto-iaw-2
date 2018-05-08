@@ -44,6 +44,10 @@ function toggleSubiendoComentario(){
 	$('#subiendo-comentario').fadeToggle();
 }
 
+function toggleCargandoComentarios(){
+	$('#cargando-comentarios').fadeToggle();
+}
+
 function mostrarComentarios(complejo){
 	//Funcion para mostrar los comentarios del complejo seleccionado
 	//Si no estan, los traemos...
@@ -54,7 +58,9 @@ function mostrarComentarios(complejo){
 	ide = complejo._id;
 	//Cargo todos los comentarios del complejo
 	var aux;
+	toggleCargandoComentarios();
 	$.get('/api/comentarios/'+complejo._id, function(data){
+		toggleCargandoComentarios();
 		if(data != []){
 					lista = data;
 					aux = lista[0].comentarios;
