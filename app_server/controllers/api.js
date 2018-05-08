@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Complejo = mongoose.model('Complejo');
+const User = mongoose.model('User');
 var complejos = {};
 complejos.getComplejos = function(req, res){
 	Complejo.find({},{comentarios:0}).exec((err, complejos) => {
