@@ -18,7 +18,6 @@ mainController.index = function (req, res) {
 };
 
 mainController.readme = function(req, res){
-	var texto = 'Esto se va a mostrar en el readme';
 	res.render('readme', {title:'Readme', texto, user:req.user})
 }
 

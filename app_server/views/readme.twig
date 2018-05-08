@@ -3,6 +3,52 @@
 {% block body %}
   {{parent()}}
   <h1>{{title}}</h1>
-  <p>Welcome to {{title}}</p>
-  <p>{{texto}}</p>
+  <div class="gral-container" id="gral-container">
+        <div class="container">
+        	<h2 class="titulo-ppal"> Readme </h2>
+	    		<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#comision">Comisión</a></li>
+					<li><a data-toggle="tab" href="#creditos">Créditos</a></li>
+					<!--<li><a data-toggle="tab" href="#consideraciones">Consideraciones</a></li> -->
+				</ul>
+
+				<div class="container tab-content">
+				    <div id="comision" class="tab-pane fade in active">
+				      <h3>Comisión</h3>
+				      <ul>
+				      	<li><strong>Manuel Pandolfi</strong> - Lu: 108597 - numapan@gmail.com</li>
+				      	<li><strong>Alan Valentin Zukerman</strong> - Lu: 107666 - alanvzuk@gmail.com</li>
+				      </ul>
+				    </div>
+				    <div id="creditos" class="tab-pane fade">
+				    <h3>Créditos</h3>
+				   	<p>Fuentes utilizadas para realizar algunas de las caracteristicas de nuestro proyecto:</p>
+				    <ul>
+				      	<li><a href="https://stackoverflow.com/questions/26381639/using-local-storage-to-allow-someone-to-comment-and-then-to-show-saved-comments">Comentarios en localStorage</a></li>
+				      	<li><a href="https://stackoverflow.com/questions/1502590/calculate-distance-between-two-points-in-google-maps-v3">Funciones de distancias entre puntos del mapa</a></li>
+				      	<li><a href="https://developers.google.com/maps/documentation/">API de Google Maps</a></li>
+				      	<li><a href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/">Modificar el range input (slider de distancia)</a></li>
+				      	<li><a href="getbootstrap.com/docs/3.3/components/">Componentes de Bootstrap</a></li>
+				      	<li><a href="https://www.w3schools.com/jquery/">Referencia para usar JQuery</a></li>
+				  	</ul>
+            <p>Librerias utilizadas para realizar algunas de las caracteristicas de nuestro proyecto:</p>
+            <ul>
+            <li><a href="https://sweetalert2.github.io/">Sweet Alert para avisos al usuario</a></li>
+            <li><a href="http://www.passportjs.org/">Passportjs para autenticarnos con redes sociales</a></li>
+            <li><a href="https://www.heroku.com/">Heroku para hostear la aplicacion</a></li>
+            <li><a href="mongoosejs.com/">Mongoosejs para interactuar con mongoDB</a></li>
+            <li><a href="https://mlab.com/">Mlab para hostear la base de datos</a></li>
+            </ul>
+		 </div>
+				   <!-- <div id="consideraciones" class="tab-pane fade">
+				      <h3>Consideraciones</h3>
+				      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+				    </div> -->
+				</div>
+        	</div>
+
+        </div>
+      </div>
+
+      <!-- FIN CONTAINER GENERAL -->
 {% endblock %}
