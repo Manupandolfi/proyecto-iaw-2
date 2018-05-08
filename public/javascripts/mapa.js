@@ -191,7 +191,7 @@ function crearMarcador(complejo){
        crearInfoWindow(complejo);
  });
   markador.setIcon("./images/pincho.png");
- return marker;
+ return markador;
 }
 function centrarMapa(complejo){
        if (circulo != null)
