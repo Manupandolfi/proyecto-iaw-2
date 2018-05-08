@@ -197,7 +197,7 @@ function select(complejoId){
 	var target = getComplejo(complejoId);
 	centrarMapa(target);
 	mostrarComentarios(target);
-	$("#btn-comment").attr('onclick', 'comentar('+complejoId+')');
+	//$("#btn-comment").attr('onclick', 'comentar('+complejoId+')');
 }
 
 
