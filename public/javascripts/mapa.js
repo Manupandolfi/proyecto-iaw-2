@@ -248,7 +248,7 @@ function filtrarDistancia(resultados,distancia){
 function esta(complejo,resultados){
     var i = 0;
     for(i; i < resultados.length; ++i){
-        if(resultados[i].id == complejo.id)
+        if(resultados[i]._id == complejo._id)
             return resultados[i];
     }
 
