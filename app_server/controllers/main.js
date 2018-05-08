@@ -18,7 +18,7 @@ mainController.index = function (req, res) {
 };
 
 mainController.readme = function(req, res){
-	res.render('readme', {title:'Readme', texto, user:req.user})
+	res.render('readme', {title:'Readme', user:req.user});
 }
 
 
