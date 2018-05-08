@@ -47,8 +47,8 @@ function mostrarComentarios(complejo){
 	//Cargo todos los comentarios del complejo
 	var aux;
 	$.get('/api/comentarios/'+complejo.id, function(data){
+		if(data != []){
 					lista = data;
-					if(data != undefined){
 					aux = lista[0].comentarios;
 					$.each(aux, function(i,k){
 						//Creo la estructura de un comentario nuevo
