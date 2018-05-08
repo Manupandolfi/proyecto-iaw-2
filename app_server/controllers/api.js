@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Complejo = mongoose.model('Complejo');
 var complejos = {};
-var ide;
 complejos.getComplejos = function(req, res){
 	Complejo.find({},{comentarios:0}).exec((err, complejos) => {
 		if(err){
@@ -16,7 +15,7 @@ complejos.getComplejos = function(req, res){
 
 
 complejos.getComentarios = function(req,res){
- 	ide = req.params.id;
+ 	var ide = req.params.id;
 	var str = "'"+ide+"'";
 	Complejo.find({_id:{$eq:ide}},{_id:0,comentarios:1}).exec((err,coment) => {
 		if(err){
@@ -34,7 +33,7 @@ complejos.getComentarios = function(req,res){
 
 complejos.comentarlo = function(req,res) {
 	var comentario = {"nombre" : req.body.nombre, "contenido" : req.body.contenido};
-	ide = req.body.id;
+	var ide = req.body.id;
 	Complejo.update({_id: ide}, {$push:{comentarios : comentario}}).exec((err,com)=>{
 		if(err){
 			res.status(404).json(err);

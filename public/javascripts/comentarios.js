@@ -27,16 +27,23 @@ function comentar(){
 }
 
 function guardarComentario(comentario) {
+	toggleSubiendoComentario();
 	$.ajax({
 	    url: '/api/comentarlo',
 	    type: 'post',
     	dataType: "json",
 	    success: function(data){
-						agregarComentario(comentario);
+	    	toggleSubiendoComentario();
+			agregarComentario(comentario);
 	    },
 			data: comentario,
 	});
 }
+
+function toggleSubiendoComentario(){
+	$('#subiendo-comentario').fadeToggle();
+}
+
 function mostrarComentarios(complejo){
 	//Funcion para mostrar los comentarios del complejo seleccionado
 	//Si no estan, los traemos...
