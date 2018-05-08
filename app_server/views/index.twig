@@ -68,7 +68,7 @@
 							{% for comp in complejos %}
 								{#{{['res-',{{comp._id}}]|join}}, {{['select(',{{comp._id}},')']|join}}#}
 								<div id='res-x'>
-									<button class="list-group-item" type="button" onclick='select({{comp.id}})'>
+									<button class="list-group-item" type="button" onclick='select({{comp._id}})'>
 										<p class="titulo-res">{{comp.nombre}}</p>
 										<p class="subtitulo-res">{{comp.direccion}}</p>
 									</button>
