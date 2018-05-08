@@ -61,7 +61,7 @@ complejos.getEstilo = function(req, res) {
 
 complejos.setEstilo = function(req,res) {
 	var user = req.user.username;
-	var nro = req.body.nro;
+	var nro = req.params.nro;
 	User.update({username:user}, {$set: {style : nro}}).exec((err,resultado)=>{
 		if(err){
 			res.status(404).json(err);
