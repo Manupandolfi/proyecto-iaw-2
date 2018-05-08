@@ -182,7 +182,9 @@
 /*inicio modificadores de inicio,estilos y login*/
 
 /*FIN*/
-
+.container .tab-content{
+  background-color: rgb(0,0,0,0.7);
+}
  .media-heading{
    color: white;
  }
