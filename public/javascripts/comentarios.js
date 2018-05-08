@@ -1,4 +1,5 @@
 var lista = [];
+var ide;
 function comentar(){
 	//Funcion para realizar un comentario al complejo indicado
 	//Obtengo los campos de los comentarios y la lista de comentarios del complejo
@@ -14,6 +15,7 @@ function comentar(){
 				});
 	}
 		var comentario = {
+			id : ide,
 			nombre : name,
 			contenido : com
 		};
@@ -40,7 +42,7 @@ function mostrarComentarios(complejo){
 	$("#titulo-comment").text("Comentarios del complejo "+complejo.nombre);
 	//Elimino todos los comentarios que hay mostrados ahora
 	$("#comentarios").empty();
-
+	ide = complejo._id;
 	//Cargo todos los comentarios del complejo
 	var aux;
 	$.get('/api/comentarios/'+complejo._id, function(data){

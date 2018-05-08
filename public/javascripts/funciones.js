@@ -1,5 +1,4 @@
 var jsonComplejos;
-
 $(document).ready(function(){
 	seleccionarEstilo();
 	crearMapa();

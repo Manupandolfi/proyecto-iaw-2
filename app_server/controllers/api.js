@@ -34,6 +34,7 @@ complejos.getComentarios = function(req,res){
 
 complejos.comentarlo = function(req,res) {
 	var comentario = {"nombre" : req.body.nombre, "contenido" : req.body.contenido};
+	ide = req.body.id;
 	Complejo.update({_id: ide}, {$push:{comentarios : comentario}}).exec((err,com)=>{
 		if(err){
 			res.status(404).json(err);
