@@ -10,9 +10,8 @@ $(document).ready(function(){
 	  confirmButtonText: 'Cerrar',
 	  confirmButtonClass: 'btn btn-info',
 	  buttonsStyling: false
-	}).then((result) => {
-		geolocacion();
-	});
+	};
+	geolocacion();
 	cargarDatos();
 
 });
