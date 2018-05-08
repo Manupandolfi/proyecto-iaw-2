@@ -129,11 +129,11 @@ function cargarCanchas(complejosACargar){
 	for(var i in complejosACargar){
 		//Para cada resultado, voy a crear un div con su respectivo id del complejo
 		var div = $('<div></div>');
-		div.attr("id","res-"+complejosACargar[i].id);
+		div.attr("id","res-"+complejosACargar[i]._id);
 		//Creo el boton que estara en el div y representa al complejo
 		var button = $('<button></button>');
 		button.attr({
-			onclick: "select("+complejosACargar[i].id+")", //Al clickear en un res se selecciona el complejo segun su id
+			onclick: "select("+complejosACargar[i]._id+")", //Al clickear en un res se selecciona el complejo segun su id
 			type: 'button',
 			class: 'list-group-item'
 		});
