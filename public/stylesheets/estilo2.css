@@ -52,8 +52,8 @@
 
 }
 .body {
- background-image:url("/images/fondito.png") !important;
- background-color: rgb(0,0,0);
+ background-image:url("../images/fondito.png") !important;
+ background-color: rgb(0,0,0) !important;
  background-attachment: fixed;
  background-repeat:no-repeat;
  background-position: center top;

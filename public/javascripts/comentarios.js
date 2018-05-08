@@ -14,6 +14,7 @@ function comentar(){
 					imageUrl : './images/chino.png'
 				});
 	}
+	else{
 		var comentario = {
 			id : ide,
 			nombre : name,
@@ -21,7 +22,8 @@ function comentar(){
 		};
 		/*ACA HABRIA QUE MANDAR LOS DATOS O SE HARIA CON EL FORM, NO ESTOY SEGURO*/
 		guardarComentario(comentario);
-	
+
+		}
 }
 
 function guardarComentario(comentario) {
