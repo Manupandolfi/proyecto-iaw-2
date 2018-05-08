@@ -190,7 +190,7 @@ function crearMarcador(complejo){
        toggleBounce();
        crearInfoWindow(complejo);
  });
-  marker.setIcon("./images/pincho.png");
+  markador.setIcon("./images/pincho.png");
  return marker;
 }
 function centrarMapa(complejo){
