@@ -12,7 +12,8 @@ $(document).ready(function(){
 	  buttonsStyling: false
 	}).then((result) => {
 		geolocacion();
-	})
+	});
+	cargarDatos();
 
 });
 
@@ -31,19 +32,15 @@ function distancia(){
 	$("#valor-distancia").text($("#range-distancia").val()+" km");
 }
 
-$(document).ready(function (){
-	//Metodos javascript que se ejecutaran al cargarse el body del html
-	//var jsonComplejos = JSON.parse($.getJSON({'url': "json/datos.json", 'async': false}).responseText);
-	cargarDatos();
-	seleccionarEstilo();
-
-});
-
 function cargarDatos(){
 	$.get('/api/complejos', function(data) {
 		jsonComplejos = data;
-		cargarCanchas(jsonComplejos);
-		cargarComplejos(jsonComplejos);
+		/*
+			NO HACE FALTA CARGAR LOS COMPLEJOS EN LOS RESULTADOS PORQUE VIENE RENDERIZADO
+			DESDE EL SERVIDOR. SOLO SE EJECUTA CARGARCOMPLEJOS PARA RENDERIZAR EL MAPA
+		*/
+		//cargarCanchas(jsonComplejos);
+		cargarComplejos(jsonComplejos); //CARGAR COMPLEJOS AL MAPA
 	});
 
 }
