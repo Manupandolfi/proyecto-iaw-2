@@ -180,18 +180,18 @@ function recuperarStringCanchas(complejo){
   return string;
 }
 function crearMarcador(complejo){
-   markador = new google.maps.Marker({
+   marker = new google.maps.Marker({
    map: map,
    draggable: false,
    animation: google.maps.Animation.DROP,
    position: {lat: parseFloat(complejo.coordenadas[0]), lng: parseFloat(complejo.coordenadas[1])}
  });
- markador.addListener('click',function(){
+ marker.addListener('click',function(){
        toggleBounce();
        crearInfoWindow(complejo);
  });
-  markador.setIcon("./images/pincho.png");
- return markador;
+  marker.setIcon("./images/pincho.png");
+ return marker;
 }
 function centrarMapa(complejo){
        if (circulo != null)
