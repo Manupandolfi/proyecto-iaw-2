@@ -66,7 +66,7 @@
 						<!-- List group -->
 						<ul class="list-group panel-limit" id="lista-resultados">
 							{% for comp in complejos %}
-								{#{{['res-',{{comp.id}}]|join}}, {{['select(',{{comp.id}},')']|join}}#}
+								{#{{['res-',{{comp._id}}]|join}}, {{['select(',{{comp._id}},')']|join}}#}
 								<div id='res-x'>
 									<button class="list-group-item" type="button" onclick='select({{comp.id}})'>
 										<p class="titulo-res">{{comp.nombre}}</p>

@@ -55,9 +55,7 @@ const complejoSchema = new mongoose.Schema({
 		type: [canchaSchema],
 		required: true
 	},
-	comentarios: {[comentarioSchema],
-	default: []
-	}
+	comentarios: [comentarioSchema]
 });
 
 mongoose.model('Complejo', complejoSchema);
