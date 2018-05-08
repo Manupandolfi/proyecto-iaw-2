@@ -21,7 +21,7 @@ function comentar(){
 		};
 		/*ACA HABRIA QUE MANDAR LOS DATOS O SE HARIA CON EL FORM, NO ESTOY SEGURO*/
 		guardarComentario(comentario);
-	}
+	
 }
 
 function guardarComentario(comentario) {

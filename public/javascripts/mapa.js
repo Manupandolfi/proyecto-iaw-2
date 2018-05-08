@@ -92,7 +92,10 @@ function crearMapa(){
 
         ]
   });
-  posUsuario = center; //POSICION POR DEFECTO PARA FILTRAR
+  posUsuario = {
+    lat: map.center.lat,
+    lng: map.center.lng
+  }; //POSICION POR DEFECTO PARA FILTRAR
 }
 
 function geolocacion(){
