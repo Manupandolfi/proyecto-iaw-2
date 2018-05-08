@@ -68,7 +68,7 @@
  /* CSS PARA LOS COMENTARIOS */
 
  .well{
-    background-color: rgb(95, 117, 126);
+    background-color: rgb(0, 0, 0,0.6);
     box-shadow: -1px 4px 20px 0px rgb(27, 95, 146);
     color: white;
  }
@@ -83,7 +83,7 @@
 
  .btn-info {
     color: #fff;
-    background-color: #5f757e;
+    background-color: rgb(0,0,0,0.7);
     border-color: #dddede;
     width: 100%;
     padding: 15px;
