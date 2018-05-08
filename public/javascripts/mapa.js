@@ -92,10 +92,10 @@ function crearMapa(){
 
         ]
   });
-  posUsuario = {
-    lat: map.center.lat,
-    lng: map.center.lng
-  }; //POSICION POR DEFECTO PARA FILTRAR
+  posUsuario= {
+            lat: map.getCenter().lat(),
+            lng: map.getCenter().lng()
+        }
 }
 
 function geolocacion(){
@@ -261,8 +261,8 @@ function esta(complejo,resultados){
 function enRango(resultado,distancia){
 
       var latlng2= {
-        lat: resultado.coordenadas[0],
-        lng: resultado.coordenadas[1]
+        lat: parseFloat(resultado.coordenadas[0]),
+        lng: parseFloat(resultado.coordenadas[1])
       }
       dista = getKilometros(posUsuario.lat,posUsuario.lng,resultado.coordenadas[0],resultado.coordenadas[1])/1000;
       if(distancia >= dista)
