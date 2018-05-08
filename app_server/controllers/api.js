@@ -18,7 +18,7 @@ complejos.getComplejos = function(req, res){
 complejos.getComentarios = function(req,res){
  	ide = req.params.id;
 	var str = "'"+ide+"'";
-	Complejo.find({id:{$eq:ide}},{_id:0,comentarios:1}).exec((err,coment) => {
+	Complejo.find({_id:{$eq:ide}},{_id:0,comentarios:1}).exec((err,coment) => {
 		if(err){
 			console.log(str);
 			res.status(404).json(err);
@@ -34,7 +34,7 @@ complejos.getComentarios = function(req,res){
 
 complejos.comentarlo = function(req,res) {
 	var comentario = {"nombre" : req.body.nombre, "contenido" : req.body.contenido};
-	Complejo.update({ id: ide}, {$push:{comentarios : comentario}}).exec((err,com)=>{
+	Complejo.update({_id: ide}, {$push:{comentarios : comentario}}).exec((err,com)=>{
 		if(err){
 			res.status(404).json(err);
 		}
