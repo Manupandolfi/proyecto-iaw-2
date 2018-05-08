@@ -182,9 +182,18 @@
 /*inicio modificadores de inicio,estilos y login*/
 
 /*FIN*/
+/*README*/
 .container .tab-content{
   background-color: rgb(0,0,0,0.7);
 }
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+      color: #fdfdfd;
+      cursor: default;
+      background-color: rgb(0,0,0,0.7);
+}
+
+
  .media-heading{
    color: white;
  }
