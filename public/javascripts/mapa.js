@@ -17,6 +17,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function crearMapa(){
     map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -38.717534, lng: -62.265437},//coordenadas de la plaza del centro
+    posUsuario = center; //POSICION POR DEFECTO PARA FILTRAR
     zoom: 15,
     styles: [//le saco las etiquetas de todos los puntos de interes que trae google maps
           {
@@ -256,10 +257,7 @@ function esta(complejo,resultados){
 }
 
 function enRango(resultado,distancia){
-      var latlng1= {
-          lat: map.getCenter().lat(),
-          lng: map.getCenter().lng()
-      }
+
       var latlng2= {
         lat: resultado.coordenadas[0],
         lng: resultado.coordenadas[1]

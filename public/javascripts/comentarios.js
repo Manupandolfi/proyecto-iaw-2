@@ -8,15 +8,11 @@ function comentar(){
 	//Chequeamos que el comentario no sea vacio
 	if(com==""){
 		swal({
-					title :'El contenido del comentario no puede ser vacío.',
+					title: '¡Falta Juez!'
+					text :'El contenido del comentario no puede ser vacío.',
 					imageUrl : './images/chino.png'
 				});
 	}
-	else{
-		//Si el usuario es vacio, entonces lo consideramos anonimo
-		if(name==""){
-			name = "Anónimo";
-		}
 		var comentario = {
 			nombre : name,
 			contenido : com
