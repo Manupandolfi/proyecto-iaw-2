@@ -141,7 +141,7 @@ function getUbicacion(){
 function crearInfoWindow(complejo){
   var infoWindow = new google.maps.InfoWindow({map: map});
   var pos = {
-          lat : 0.0004 + parseFloat(complejo.coordenadas[0]),
+          lat : 0.00022 + parseFloat(complejo.coordenadas[0]),
           lng : parseFloat(complejo.coordenadas[1])
     };
     stringCanchas = recuperarStringCanchas(complejo);
