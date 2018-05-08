@@ -180,13 +180,13 @@ function recuperarStringCanchas(complejo){
   return string;
 }
 function crearMarcador(complejo){
-   marker = new google.maps.Marker({
+   markador = new google.maps.Marker({
    map: map,
    draggable: false,
    animation: google.maps.Animation.DROP,
    position: {lat: parseFloat(complejo.coordenadas[0]), lng: parseFloat(complejo.coordenadas[1])}
  });
- marker.addListener('click',function(){
+ markador.addListener('click',function(){
        toggleBounce();
        crearInfoWindow(complejo);
  });
