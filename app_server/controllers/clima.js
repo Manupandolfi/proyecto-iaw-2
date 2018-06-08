@@ -11,12 +11,10 @@ clima.getClima = function(req,res){
      client.responseType = 'json';
      client.addEventListener('load', function() {
        var data = client.response;
-       if (data.meta.status !== 200) {
-         return;
+         res.json(data);
        }
-       console.log(data.response.blog.title);
      }, false);
-res.json(data);
+
 }
 
 module.exports = clima;
