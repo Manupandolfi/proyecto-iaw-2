@@ -16,8 +16,7 @@ request({
   maxRedirects: 10
 }, function(error, response, body) {
       console.log(body);
-      var datos = JSON.parse(body);
-      res.status(200).json(datos);
+      res.status(200).json(body);
 });
 
 }
