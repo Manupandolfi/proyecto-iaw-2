@@ -16,8 +16,7 @@ clima.getClima = function(req,res){
        }
        console.log(data.response.blog.title);
      }, false);
-     client.send();
-
+res.json(data);
 }
 
 module.exports = clima;
