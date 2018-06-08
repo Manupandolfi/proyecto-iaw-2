@@ -5,15 +5,16 @@ clima.getClima = function(req,res){
       var url1 = 'http://dataservice.accuweather.com/currentconditions/v1/2931?apikey=';
       var key = 'bGpGXSIQ9WuaTxxGEMzi5GF7FfkMLvsD';
       var config = '&language=es&details=false';
-      var url = url1+key+config;
-     var client = new XMLHttpRequest();
-     client.open('GET', url);
-     client.responseType = 'json';
-     client.addEventListener('load', function() {
-       var data = client.response;
-         res.json(data);
-
-     }, false);
+      var url2 = url1+key+config;
+      $.ajax({
+    	    url: url2,
+    	    type: 'get',
+        	dataType: "json",
+          async: false,
+    	    success: function(data){
+    	         res.status(200);
+               res.JSON(data);
+    	});
 
 }
 
