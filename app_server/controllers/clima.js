@@ -1,6 +1,6 @@
 var XMLHttpRequest = require("w3c-xmlhttprequest").XMLHttpRequest;
 var clima = {};
-
+var $ = require('jquery');
 clima.getClima = function(req,res){
       var url1 = 'http://dataservice.accuweather.com/currentconditions/v1/2931?apikey=';
       var key = 'bGpGXSIQ9WuaTxxGEMzi5GF7FfkMLvsD';
