@@ -1,3 +1,4 @@
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var clima = {};
 
 clima.getClima = function(req,res){
