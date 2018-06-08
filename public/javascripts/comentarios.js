@@ -126,8 +126,8 @@ function ocultarComentarios(){
 }
 
 function pedirClima(){
-
-  $.get('/clima', function(data){
+	var url1 = 'http://dataservice.accuweather.com/currentconditions/v1/2931?apikey=bGpGXSIQ9WuaTxxGEMzi5GF7FfkMLvsD&language=es&details=false'
+  $.get(url, function(data){
             swal({text: data.WeatherText});
       });
 }

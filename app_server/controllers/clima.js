@@ -5,7 +5,7 @@ clima.getClima = function(req,res){
       var key = 'bGpGXSIQ9WuaTxxGEMzi5GF7FfkMLvsD';
       var config = '&language=es&details=false';
       var url2 = url1+key+config;
-      jQuery.get(url2,function(data){
+      get(url2,function(data){
               res.status(200);
               res.JSON(data);
 
