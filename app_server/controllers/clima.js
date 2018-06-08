@@ -14,7 +14,8 @@ clima.getClima = function(req,res){
     	    success: function(data){
     	         res.status(200);
                res.JSON(data);
-    	});
+             },
+            });
 
 }
 
