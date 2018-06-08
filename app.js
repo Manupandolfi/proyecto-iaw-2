@@ -15,6 +15,7 @@ const indexRouter = require('./app_server/routes/index');
 const authRouter = require('./app_server/routes/auth');
 const usersRouter = require('./app_server/routes/users');
 const apiRouter = require('./app_server/routes/api');
+const climaRouter = require('./app_server/routes/clima');
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/api', apiRouter);
 app.use('/users',usersRouter);
+app.use('/clima',climaRouter);
 
 
 // catch 404 and forward to error handler
