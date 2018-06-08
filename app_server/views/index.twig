@@ -11,7 +11,10 @@
 		<div class="container">
 			<h2 class="titulo-ppal"> Complejos de Futbol </h2>
 			<div id="row-map" class="row">
-
+				<!-- DIV DEL CLIMA> -->
+				<div name="clima" class="col-3">
+					<button id="btn-clima" onclick=pedirClima()>
+				</div>
 				<!-- DIV DE LOS FILTROS -->
 				<div class="col-xs-12 col-sm-4 col-md-3">
 					<div class="panel panel-default" id="panel-filtros">
@@ -83,7 +86,7 @@
 				<h2 id="titulo-comment"></h2>
 
 				<div id="comentarios"></div>
-				
+
 				<div id="add-comments">
 					<h3 id="cargando-comentarios" class="deja-comments get-out">Cargando comentarios...</h3>
 					{% if not user %}

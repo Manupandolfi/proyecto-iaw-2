@@ -8,4 +8,3 @@ mongoose.connect(dbURI)
 	.catch((err) => console.error(err));
 
 mongoose.Promise = global.Promise;
-
