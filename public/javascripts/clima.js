@@ -3,7 +3,7 @@ function pedirClima() {
   $.get('/clima', function(data){
         if (data != [])
             mostrarClima(data);
-      }
+      });
 }
 
 
