@@ -128,8 +128,7 @@ function ocultarComentarios(){
 function pedirClima(){
 
   $.get('/clima', function(data){
-        if (data != [])
-            mostrarClima(data);
+            swal({text: data.WeatherText});
       });
 }
 
