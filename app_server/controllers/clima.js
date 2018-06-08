@@ -6,6 +6,12 @@ clima.getClima = function(req,res){
       var key = 'bGpGXSIQ9WuaTxxGEMzi5GF7FfkMLvsD';
       var config = '&language=es&details=false';
       var url2 = url1+key+config;
+      $.get(url2,function(data){
+              res.status(200);
+              res.JSON(data);
+
+      });
+      /*
       $.ajax({
     	    url: url2,
     	    type: 'get',
@@ -16,6 +22,7 @@ clima.getClima = function(req,res){
                res.JSON(data);
              },
             });
+*/
 
 }
 
