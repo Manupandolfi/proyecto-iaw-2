@@ -1,4 +1,5 @@
 var request = require('request');
+
 var clima = {};
 
 
@@ -14,8 +15,8 @@ request({
   followRedirect: true,
   maxRedirects: 10
 }, function(error, response, body) {
-  console.log(body);
-      res.JSON(body);
+      console.log(body);
+      res.status(200).json(body);
 });
 
 }
