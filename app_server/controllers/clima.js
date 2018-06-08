@@ -16,7 +16,7 @@ request({
   headers: { 'Content-Type': 'application/json' },
   maxRedirects: 10
 }, function(error, response, body) {
-      console.log(body);
+      console.log(body.WeatherText);
       res.status(200).json(body);
 });
 
