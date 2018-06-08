@@ -42,7 +42,7 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/api', apiRouter);
 app.use('/users',usersRouter);
-app.use('/clima',climaRouter);
+app.use('/clima' ,climaRouter);
 
 
 // catch 404 and forward to error handler
