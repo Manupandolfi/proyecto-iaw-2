@@ -12,7 +12,7 @@ clima.getClima = function(req,res){
      client.addEventListener('load', function() {
        var data = client.response;
          res.json(data);
-       }
+
      }, false);
 
 }
