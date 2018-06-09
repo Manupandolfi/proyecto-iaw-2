@@ -17,9 +17,8 @@ const options = {
 };
 
 request(options, function(error, response, body) {
-      var miJson = JSON.parse(body);
-      console.log(miJson.WeatherText);
-      res.status(200).json(miJson.WeatherText);
+      console.log(body.WeatherText);
+      res.status(200).json(body.WeatherText);
 });
 
 }
