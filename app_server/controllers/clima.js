@@ -17,14 +17,15 @@ request({
   maxRedirects: 10
 }, function(error, response, body) {
       console.log(body.WeatherText);
+      /*
       var miJson = [
   {
     "WeatherText": body.WeatherText,
     "WeatherIcon": body.WeatherIcon,
     "Temperature": body.Temperature.Imperial
   }
-];
-console.log(miJson);
+];*/
+
       res.status(200).json(miJson);
 });
 
