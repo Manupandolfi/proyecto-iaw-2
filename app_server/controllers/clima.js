@@ -16,6 +16,7 @@ request({
   headers: { 'Content-Type': 'application/json' },
   maxRedirects: 10
 }, function(error, response, body) {
+      var miJson = JSON.parse(body);
       console.log(body.WeatherText);
       /*
       var miJson = [
