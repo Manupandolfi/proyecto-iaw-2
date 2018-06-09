@@ -1,12 +1,12 @@
 var request = require('request');
-const accuKey = process.env.accuKey;
+const accuKey = process.env.AccuKey;
 
 var clima = {};
 
 
 clima.getClima = function(req,res){
 var url1 = 'http://dataservice.accuweather.com/currentconditions/v1/2931?apikey=';
-var key = "'"+accuKey+"'";
+var key = ""+accuKey+"";
 var config = '&language=es&details=false';
 var url2 = url1+key+config;
 //var url2 = 'http://dataservice.accuweather.com/currentconditions/v1/2931?apikey=bGpGXSIQ9WuaTxxGEMzi5GF7FfkMLvsD&language=es&details=false';
