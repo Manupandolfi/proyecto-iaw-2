@@ -18,6 +18,7 @@ request({
 }, function(error, response, body) {
       var miJson = JSON.parse(body);
       console.log(miJson.WeatherText);
+      console.log(body.WeatherText);
       /*
       var miJson = [
   {
