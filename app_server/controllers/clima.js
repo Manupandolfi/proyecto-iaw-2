@@ -1,4 +1,5 @@
 var request = require('request');
+const accuKey = process.env.accuKey;
 
 var clima = {};
 
