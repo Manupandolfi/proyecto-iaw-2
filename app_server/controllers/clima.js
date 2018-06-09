@@ -17,8 +17,13 @@ const options = {
 };
 
 request(options, function(error, response, body) {
+      var miJson = JSON.parse(body);
       console.log(body.WeatherText);
-      res.status(200).json(body.WeatherText);
+      console.log(miJson.WeatherText);
+      console.log(miJson);
+
+
+      res.status(200).json(miJson);
 });
 
 }
