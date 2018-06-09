@@ -17,7 +17,7 @@ request({
   maxRedirects: 10
 }, function(error, response, body) {
       var miJson = JSON.parse(body);
-      console.log(body.WeatherText);
+      console.log(miJson.WeatherText);
       /*
       var miJson = [
   {
@@ -27,7 +27,7 @@ request({
   }
 ];*/
 
-      res.status(200).json(body);
+      res.status(200).json(miJson);
 });
 
 }
