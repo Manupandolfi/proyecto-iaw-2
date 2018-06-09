@@ -18,13 +18,10 @@ const options = {
 
 request(options, function(error, response, body) {
       var miJson = JSON.parse(body);
-      console.log(body.WeatherText);
-      console.log(miJson[0].WeatherText);
-      console.log(miJson);
-      console.log(body);
+      console.log(miJson[0]);
 
 
-      res.status(200).json(miJson);
+      res.status(200).json(miJson[0]);
 });
 
 }
