@@ -26,7 +26,7 @@ request({
   }
 ];*/
 
-      res.status(200).json(miJson);
+      res.status(200).json(body);
 });
 
 }
