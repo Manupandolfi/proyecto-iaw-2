@@ -21,6 +21,7 @@ request(options, function(error, response, body) {
       console.log(body.WeatherText);
       console.log(miJson.WeatherText);
       console.log(miJson);
+      console.log(body);
 
 
       res.status(200).json(miJson);
