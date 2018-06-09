@@ -13,7 +13,6 @@ request({
   method: "GET",
   timeout: 10000,
   followRedirect: true,
-  headers: { 'Content-Type': 'application/json' },
   maxRedirects: 10
 }, function(error, response, body) {
       var miJson = JSON.parse(body);
