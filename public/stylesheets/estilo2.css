@@ -207,7 +207,10 @@
 
 .boton-clima{
     background-image: url(../images/clima.png);
-    margin-bottom: 30px;
+    margin-top: 35%;
+    margin-left: 85%;
+    position:fixed;
+    margin-bottom:2%;
     background-color: rgba(0,0,0,0);
     min-width: 50px;
     min-height: 50px;
