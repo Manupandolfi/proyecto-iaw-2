@@ -204,3 +204,11 @@
 .mapa{
 	height : 460px
 }
+
+.boton-clima{
+    background-image: url("../images/fondito.png");
+    margin-bottom: 30px;
+    background-color:rgba(0,0,0,0);
+    max-width: 30%;
+    max-height: 30%;
+}
