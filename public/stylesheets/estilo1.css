@@ -357,9 +357,10 @@ input[type=range]::-ms-thumb {
 }
 
 .boton-clima{
-    background-image: url("../images/fondito.png");
+    background-image: url(../images/clima.png);
     margin-bottom: 30px;
-    background-color:rgba(0,0,0,0);
-    max-width: 30%;
-    max-height: 30%;
-}
+    background-color: rgba(0,0,0,0);
+    min-width: 50px;
+    min-height: 50px;
+    border-color: rgba(0,0,0,0);
+  }
