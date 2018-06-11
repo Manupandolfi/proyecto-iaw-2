@@ -362,5 +362,7 @@ input[type=range]::-ms-thumb {
     background-color: rgba(0,0,0,0);
     min-width: 50px;
     min-height: 50px;
+        margin-top: 35%;
+    margin-left: 85%;
     border-color: rgba(0,0,0,0);
   }
