@@ -38,11 +38,12 @@ request(options, function(error, response, body) {
      			"un partido hoy. Te recomendamos reservar otro dia.";
      }
      reporte.grados = grados;
-     reporte.icono = "https://developer.accuweather.com/sites/default/files/"+tiempo+"-s.png";
+     //Este aux se usa para formar los id menores a 0 como "0X"
+     var aux = "";
+     if (timepo<10)
+        aux+="0";
+     reporte.icono = "https://developer.accuweather.com/sites/default/files/"+aux+tiempo+"-s.png";
      reporte.descripcion = miJson[0].WeatherText;
-
-     console.log(reporte);
-
 
 
       res.status(200).json(reporte);
