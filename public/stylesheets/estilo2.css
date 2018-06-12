@@ -204,15 +204,3 @@
 .mapa{
 	height : 460px
 }
-
-.boton-clima{
-    background-image: url(../images/clima.png);
-    margin-top: 35%;
-    margin-left: 85%;
-    position:fixed;
-    margin-bottom:2%;
-    background-color: rgba(0,0,0,0);
-    min-width: 50px;
-    min-height: 50px;
-    border-color: rgba(0,0,0,0);
-  }

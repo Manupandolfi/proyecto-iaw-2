@@ -1,0 +1,16 @@
+.boton-clima{
+    background-image: url(../images/clima.png);
+    position:fixed;
+   right: 10px;
+   bottom: 10px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0);
+    min-width: 60px;
+    min-height: 60px;
+    border-color: rgba(0,0,0,0);
+  }
+
+.btn-primary:hover {
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0);
+}
