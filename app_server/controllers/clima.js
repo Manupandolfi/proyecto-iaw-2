@@ -37,7 +37,7 @@ request(options, function(error, response, body) {
      	reporte.texto+="Las condiciones del clima no son agradables para jugar "+
      			"un partido hoy. Te recomendamos reservar otro dia.";
      }
-
+     reporte.grados = grados;
      reporte.icono = "https://developer.accuweather.com/sites/default/files/"+tiempo+"-s.png";
      reporte.descripcion = miJson[0].WeatherText;
 
