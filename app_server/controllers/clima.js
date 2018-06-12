@@ -40,7 +40,7 @@ request(options, function(error, response, body) {
      reporte.grados = grados;
      //Este aux se usa para formar los id menores a 0 como "0X"
      var aux = "";
-     if (timepo<10)
+     if (tiempo<10)
         aux+="0";
      reporte.icono = "https://developer.accuweather.com/sites/default/files/"+aux+tiempo+"-s.png";
      reporte.descripcion = miJson[0].WeatherText;
